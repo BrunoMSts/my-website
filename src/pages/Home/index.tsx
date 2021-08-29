@@ -1,12 +1,10 @@
-import Circles from "../../canvas/Circles/index.jsx";
-import Draw from "../../canvas/Draw/index.jsx";
-import { Main } from "./styles";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
-    <Main>
-      {/* <Draw /> */}
-      <Circles />
-    </Main>
+    <>
+    <h1>NADA AQUI AINDA, CURIOSO</h1>
+    <Link to="/canvas">Mentira, tem esse link aq</Link>
+    </>
   )
 }
