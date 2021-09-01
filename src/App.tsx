@@ -1,4 +1,4 @@
-import './index.css'
+import './global/styles.css'
 
 import Routes from './routes'
 

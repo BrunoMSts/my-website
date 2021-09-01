@@ -393,6 +393,3 @@ function animate(){
         ball.draw()
     })
 }
-
-init()
-animate()

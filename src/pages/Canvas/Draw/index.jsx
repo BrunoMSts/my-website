@@ -28,8 +28,8 @@ export default function Draw() {
     context.scale(2,2)
 
     context.lineCap = "round"
-    context.strokeStyle = pencilColor
-    context.lineWidth = lineWidth
+    context.strokeStyle = "#000"
+    context.lineWidth = 5
     contextRef.current = context
   }, [])
   
