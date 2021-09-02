@@ -27,5 +27,11 @@ export const CardContainer = styled.div`
 
   &:hover span {
     opacity: 1;
+    cursor: default;
   };
+
+  @media(max-width: 498px) {
+    padding: 2rem 3rem;
+
+  }
 `

@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { 
   Main, 
@@ -11,7 +12,8 @@ import {
   RightSide,
   MyPicture,
   Header,
-  StackCardContainer
+  StackCardContainer,
+  ContactContainer
 } from "./styles";
 
 import { stacks } from '../../utils/stacks';
@@ -21,14 +23,29 @@ import { AiOutlineLinkedin } from 'react-icons/ai'
 
 import Navbar from "../../components/Navbar";
 import StackCard from "../../components/StackCard";
+import Carousel from "../../components/Carousel";
+
 import { SiGmail } from "react-icons/si";
 
 export default function Home() {
+
+  const [isScroll, setIsScroll] = useState(false)
+
+  useEffect(() => {
+    window.onscroll = () => {
+      setIsScroll(true)
+    }
+
+    setInterval(() => {
+      setIsScroll(false)
+    }, 2000)
+  }, [])
+
   return (
     <>
       <h1>NADA AQUI AINDA, CURIOSO</h1>
       <span style={{color: 'red'}}>AS CORES SERVEM MERAMENTE PARA SABER O FINAL DE CADA DE SECTION, SITE EM DESENVOLVIMENTO</span><br />      <Link to="/canvas">Mentira, tem esse link aq</Link>
-      <Navbar />
+      {/* <Navbar isScrolling={isScroll}/> */}
       <Main>
         <section>
           <Introduction id="introduction">
@@ -42,10 +59,10 @@ export default function Home() {
             <Header>
               <h1>Perfil</h1>
               <p>Always in constanting learning. 🌱</p>
-              <hr style={{width: "825px", margin: "1.5rem 0"}}/>
+              <hr className="line"/>
             </Header>
             <AboutMe>
-              <LeftSide>
+              <LeftSide className="left">
                 <h1>About me</h1>
                 <p style={{fontSize: "15px"}}>
                   Hi there 👋<br />
@@ -60,17 +77,17 @@ export default function Home() {
                 </p>
               </LeftSide>
               <MyPicture src="https://avatars.githubusercontent.com/u/49536304?v=4" alt="eu" />
-              <RightSide>
+              <RightSide className="right">
                 <div className="details">
-                <h1>Details</h1>
-                <span className="bold">Nome: </span><p>Bruno</p>
-                <span className="bold">Idade: </span><p>21</p>
-                <span className="bold">Localização: </span><p>Em algum lugar no pálido ponto azul</p>
+                  <h1>Details</h1>
+                  <span className="bold">Nome: </span><p>Bruno</p>
+                  <span className="bold">Idade: </span><p>21</p>
+                  <span className="bold">Localização: </span><p>Em algum lugar no pálido ponto azul</p>
                 </div>
                 <div className="contacts">
-                  <a href="https://www.github.com/BrunoMSts" aria-label="github" title="Github"><FaGithubAlt size={30}/></a>
-                  <a href="" aria-label="linkedin" title="Linkedin"><AiOutlineLinkedin size={30}/></a>
-                  <a href="" aria-label="gmail" title="Gmail"><SiGmail size={30}/></a>
+                  <a href="https://www.github.com/BrunoMSts" title="Github"><FaGithubAlt size={30}/></a>
+                  <a href="https://www.google.com" title="Linkedin"><AiOutlineLinkedin size={30}/></a>
+                  <a href="https://www.google.com"><SiGmail size={30} title="Gmail"/></a>
                 </div>
               </RightSide>
             </AboutMe>
@@ -80,8 +97,8 @@ export default function Home() {
          <Abilities id="abilities">
            <Header>
               <h1>Habilidades</h1>
-              <p>breve descrição</p>
-              <hr style={{width: "825px", margin: "2.5rem 0"}}/>
+              <p>Tecnologias que mais uso atualmente 🔥</p>
+              <hr className="line"/>
            </Header>
            <StackCardContainer>
             {stacks.map(stack => (
@@ -91,10 +108,31 @@ export default function Home() {
         </Abilities>
         </section>
         <section>
-         <Projects id="projects">Projetos</Projects>
+         <Projects id="projects">
+          <Header className="header">
+              <h1>Projetos</h1>
+              <p>Projetos que desenvolvi ao longo da minha jornada como dev 👨‍💻</p>
+              <hr className="line"/>
+          </Header>
+          <Carousel />
+         </Projects>
         </section>
         <section>
-          <Contact id="contact">Contato</Contact>
+          <Contact id="contact">
+            <Header>
+                <h1>Contato</h1>
+                <p>Entre em contato comigo 🤗</p>
+                <hr className="line"/>
+            </Header>
+            <ContactContainer>
+              <div className="infos">
+                <input type="nome" placeholder="Nome"/>
+                <input type="email" placeholder="E-mail"/>
+              </div>
+              <textarea name="mensagem" id="" placeholder="Escreva sua mensagem"></textarea>
+              <button type="submit">Enviar</button>
+            </ContactContainer>
+          </Contact>
         </section>
       </Main>
     </>

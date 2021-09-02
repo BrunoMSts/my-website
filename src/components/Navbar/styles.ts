@@ -2,17 +2,19 @@ import styled from "styled-components";
 
 export const Nav = styled.nav`
   display: flex;
-  margin: 200px 0 0 30px;
+  justify-content: flex-end;
+  width: 160px;
+  margin-top: 200px;
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #F43e50;
   overflow-x: hidden;
-  border-radius: 20px;
 `
 
 export const NavCenter = styled.div`
+  background-color: #F43e50;
+  border-radius: 20px;
 `
 
 export const Links = styled.div`
