@@ -1,7 +1,12 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { CarouselContainer, Swiper } from "./styles";
 
 import { GoPrimitiveDot } from 'react-icons/go'
+
+import Plant from '../../assets/plantmanager.png'
+import Letmeask from '../../assets/letmeask.jpg'
+import CRUD from '../../assets/crud.jpg'
+import Mows from '../../assets/mows.jpg'
 
 export default function Carousel() {
 
@@ -9,19 +14,27 @@ export default function Carousel() {
   const datas = [
     {
       id: 1,
-      title: 'img1'
+      title: 'plantmanager',
+      img: Plant,
+      url: 'https://github.com/BrunoMSts/plantmanager'
     },
     {
       id: 2,
-      title: 'img2'
+      title: 'letmeask',
+      img: Letmeask,
+      url: 'https://github.com/BrunoMSts/letmeask'
     },
     {
       id: 3,
-      title: 'img3'
+      title: 'crudapp',
+      img: CRUD,
+      url: 'https://github.com/BrunoMSts/CRUD-NextJS'
     },
     {
       id: 4,
-      title: 'img4'
+      title: 'myownwebsite',
+      img: Mows,
+      url: 'http://localhost:3000/'
     },
   ]
 
@@ -47,9 +60,10 @@ export default function Carousel() {
           key={data.id} 
           id={data.id.toString()} 
           onClick={event => handleIsActive(event)}
-          className={Number(activeIndex) === data.id ? "content active" : "content"}
+          className={Number(activeIndex) === data.id ? "imgContainer active" : "imgContainer"}
         >
-          {data.title}
+          <a href={data.url} />
+          <img src={data.img} alt={data.title} />
         </div>
       ))}
       <Swiper>

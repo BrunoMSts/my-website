@@ -103,49 +103,76 @@
 // }
 
 export class Ball {
- constructor(posX, posY, radius, canvaWidth, canvaHeight, colorFill = '')  {
-  this.posX = posX 
-  this.posY = posY
-  this.velocity = {
-      dX: (Math.random() - 0.5) * 5,
-      dY: (Math.random() - 0.5) * 5
+  constructor(posX, posY, radius, colorFill = '')  {
+    this.posX = posX 
+    this.posY = posY
+    this.velocity = {
+        dX: (Math.random() - 0.5) * 5,
+        dY: (Math.random() - 0.5) * 5
   }
-  this.canvaHeight = canvaHeight
-  this.canvaWidth = canvaWidth
   this.trailVelocity = 0.05
   this.radians = Math.random() * Math.PI * 2
   // this.distanceFromCenter = randomRange(50, 120)
   this.radius = radius
   this.lineWidth = 0.2
   this.minRadius = radius
-  this.colorFill = "#333"
+  this.colorFill = "#ff112230"
   this.mass = 1
  }
 
- moveRandom() {
-  if(this.posY + this.radius >= this.canvaHeight - 10 || this.posY - this.radius < 0){
-     this.velocity.dY = -this.velocity.dY
-  }
-  if(this.posX + this.radius >= this.canvaWidth - 10 || this.posX - this.radius < 0){
-     this.velocity.dX = -this.velocity.dX
+  moveRandom(canvaWidth, canvaHeight) {
+    if(this.posY + this.radius >= canvaHeight - 10 || this.posY - this.radius < 0){
+      this.velocity.dY = -this.velocity.dY
+    }
+    if(this.posX + this.radius >= canvaWidth - 10 || this.posX - this.radius < 0){
+      this.velocity.dX = -this.velocity.dX
+    }
+
+    if((this.posX + this.radius > canvaWidth )) {
+      this.posX = (this.radius * 2)
+    }
+
+    if((this.posY + this.radius > canvaHeight )) {
+      this.posY = (this.radius * 2)
+    }
+    this.posY += this.velocity.dY
+    this.posX += this.velocity.dX
   }
 
-  if((this.posX + this.radius > this.canvaWidth )) {
-    this.posX -= this.radius
+  lineConnections(balls, actualBall, context) {
+    for(let i = 0; i < balls.length; i++) {
+      if(actualBall === balls[i]) continue;
+
+      const distance = this.getDistance(this.posX, this.posY, balls[i].posX, balls[i].posY)
+
+      if (distance < 150) {
+        context.beginPath()
+        context.strokeStyle = this.colorFill
+        context.lineWidth = this.lineWidth
+
+        context.moveTo(this.posX, this.posY)
+        context.lineTo(balls[i].posX, balls[i].posY)
+
+        context.stroke()
+        context.closePath()
+      }
+    }
   }
 
-  if((this.posY + this.radius > this.canvaHeight )) {
-    this.posY -= this.radius
-  }
-  this.posY += this.velocity.dY
-  this.posX += this.velocity.dX
-}
+  getDistance(posX1, posY1, posX2, posY2) {
+    const xDist = posX2 - posX1
+    const yDist = posY2 - posY1
 
- draw(ctx) {
-  ctx.beginPath()
-  ctx.arc(this.posX, this.posY, this.radius, 0, Math.PI * 2, false)
-  ctx.fillStyle = this.colorFill
-  ctx.fill()
-  ctx.closePath()
- }
+    const hypot = Math.hypot(xDist, yDist)
+
+    return hypot
+  }
+
+  draw(ctx) {
+    ctx.beginPath()
+    ctx.arc(this.posX, this.posY, this.radius, 0, Math.PI * 2, false)
+    ctx.fillStyle = this.colorFill
+    ctx.fill()
+    ctx.closePath()
+  }
 }

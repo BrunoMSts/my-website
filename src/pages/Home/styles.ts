@@ -12,7 +12,14 @@ export const Introduction = styled.div`
   justify-content: center;
   width: 100%;
   height: 100vh;
-  background-color: #AEAEAE;
+
+  .img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    opacity: 0.2;
+  }
 `
 
 //----------------------------------------------------
@@ -220,7 +227,6 @@ export const Projects = styled.div`
   flex-direction: column;
   width: 100%;
   height: 50vh;
-  background: #AAFF12;
 
   hr.line { 
     width: 850px;

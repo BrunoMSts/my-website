@@ -8,19 +8,32 @@ export const CarouselContainer = styled.div`
   align-items: center;
   margin-top: 50px;
   
-
-  .content {
+  .imgContainer {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100px;
-    height: 100px;
-    margin-right: 10px;
+    width: 315px;
+    height: 10rem;
+    margin: 0 15px 20px;
+    padding: 8px;
 
-    background-color: #da34f3;
+    border: 1px solid #aeaeae;
     border-radius: 20px;
-
     transition: 0.35s;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: scale-down;
+    }
+
+    a {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: none;
+    }
 
     &:hover {
       cursor: pointer;
@@ -28,12 +41,15 @@ export const CarouselContainer = styled.div`
   }
   
   .active {
-    height: 140px;
+    height: 12rem;
+    a {
+      display: inline;
+    }
   }
   
-  @media(max-width: 500px) {
-    .content {
-      margin: 0 auto;
+  @media(max-width: 501px) {
+    .imgContainer {
+      margin: 0;
     }
   }
 `
@@ -42,8 +58,7 @@ export const CarouselContainer = styled.div`
 export const Swiper = styled.div`
   display: flex;
   position: absolute;
-  bottom: -30px;
-  margin: 0 180px;
+  margin-top: 230px;
 
   span {
     margin-right: 4px;
