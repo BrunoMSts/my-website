@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { CarouselContainer, Swiper } from "./styles";
 
 import { GoPrimitiveDot } from 'react-icons/go'
@@ -46,7 +46,6 @@ export default function Carousel() {
     setActiveIndex(event.currentTarget.id)
   }
 
-
   // useEffect(() => {
   //   if(!isClicked) {
   //     setTimeout(() => setActiveIndex((prevIndex) => prevIndex === datas.length ? 0 : prevIndex + 1), 2000)
@@ -56,14 +55,15 @@ export default function Carousel() {
   return (
     <CarouselContainer >
       {datas.map(data => (
-        <div 
-          key={data.id} 
-          id={data.id.toString()} 
-          onClick={event => handleIsActive(event)}
-          className={Number(activeIndex) === data.id ? "imgContainer active" : "imgContainer"}
-        >
-          <a href={data.url} />
-          <img src={data.img} alt={data.title} />
+        <div key={data.id} className="content">
+          <div 
+            id={data.id.toString()} 
+            onClick={event => handleIsActive(event)}
+            className={Number(activeIndex) === data.id ? "imgContainer active" : "imgContainer"}
+          >
+            <a href={data.url} />
+            <img src={data.img} alt={data.title} />
+          </div>
         </div>
       ))}
       <Swiper>

@@ -27,10 +27,132 @@ export const Introduction = styled.div`
 //PROFILE STYLES ------------------------------------
 export const Profile = styled.div`
   display: flex;
-  flex-direction: column;
+  position: relative;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 60vh;
-  background-color: #AEAE;
+
+  .profileContainer {
+    position: absolute;
+    background: #AEAEAE;
+    margin: 0 auto;
+    border-radius: 20px;
+    padding: 2rem;
+    z-index: 1;
+  }
+
+  .carouselContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background: #AEAEAA70;
+    padding: 10px 10px 20px 30px;
+    border-radius: 20px;
+    transform: translateX(-247px);
+    
+    transition: 0.8s;
+
+    .carouselHeader {
+      margin-right: 5rem;
+      line-height: 0;
+    }
+
+
+    span.projectsText {
+      position: absolute;
+      left: 0;
+      margin-left: 8px;
+
+      transition: 0.8s;
+    }
+
+    :hover {
+      transform: translateX(-650px);
+
+      span.projectsText {
+        opacity: 0;
+      }
+    }
+  }
+
+  .abilitiesContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 30px 10px 10px;
+    border-radius: 20px;
+    background: #AEAEAA70;
+    transform: translateX(283px);
+
+    .abilitiesHeader {
+      margin-left: 5rem;
+      line-height: 0;
+    }
+
+    span.stackText {
+      position: absolute;
+      right: 0;
+      margin-right: 8px;
+
+      transition: 0.8s;
+    }
+
+    transition: 0.8s;
+    :hover {
+      transform: translateX(600px);
+
+      span.stackText {
+        opacity: 0;
+      }
+    }
+  }
+
+  @media (max-width: 1700px) {
+    flex-direction: column;
+    margin-bottom: 500px;
+
+    .carouselContainer {
+      padding: 10px 10px 20px;
+      transform: translateY(450px);
+      margin-left: 30rem;
+
+      .carouselHeader {
+        margin: 0;
+      }
+
+      :hover {
+        transform: translate(0, 472px);
+      }
+
+      span.projectsText {
+        display: none;
+      }
+    }
+    
+    .abilitiesContainer {
+      position: absolute;
+      padding: 10px;
+      transform: translateY(440px);
+      right: 0;
+      margin-right: 28rem;
+
+      .abilitiesHeader {
+        margin: 0;
+      }
+
+      :hover {
+        transform: translate(0, 462px);
+      }
+
+      span.stackText {
+        display: none;
+      }
+    }
+  }
   
   @media(max-height: 890px) {
     height: 550px;
@@ -46,13 +168,35 @@ export const Profile = styled.div`
 
 
 `
+export const StackCardContainer = styled.div`
+  display: grid;
+  background: rgba(28,28,28, 0.5);
+  padding: 0.75rem;
+  margin-left: 5rem;
+  border-radius: 15px;
+  grid-template-columns: repeat(2, 1fr);
+  align-self: center;
+  gap: 1rem;
+
+  @media(max-width: 1700px) {
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0;
+  }
+
+  @media(max-width: 900px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media(max-width: 675px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+`
 export const Header = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   line-height: 0;
-  padding-top: 35px;
 
   hr.line { 
     width: 850px;
@@ -71,7 +215,6 @@ export const Header = styled.div`
     }
   }
 `
-
 export const AboutMe = styled.main`
   display: flex;
   align-items: center;
@@ -82,7 +225,7 @@ export const AboutMe = styled.main`
     margin: 0 100px;
 
     img {
-      transform: translateY(-320px) ;
+      transform: translateY(-300px) ;
     }
 
     div.left {
@@ -91,7 +234,7 @@ export const AboutMe = styled.main`
     }
 
     div.right {
-      transform: translateY(-305px);
+      transform: translateY(-272px);
       margin-right: 20px;
       align-self: flex-end;
     }
@@ -110,11 +253,9 @@ export const AboutMe = styled.main`
   }
 
 `
-
 export const LeftSide = styled.div`
   width: 270px;
 `
-
 export const MyPicture = styled.img`
   width: 220px;
   height: 220px;
@@ -122,7 +263,6 @@ export const MyPicture = styled.img`
   justify-self: center;
   margin: 0 4rem 0 2rem;
 `
-
 export const RightSide = styled.div`
 
   display: flex;
@@ -153,120 +293,6 @@ export const RightSide = styled.div`
   }
 `
 //----------------------------------------------------
-//ABILITES STYLES ------------------------------------
-export const Abilities = styled.div`
-  display: flex;
-  flex-direction: column;
-  background: rgba(28,28,28, 0.8);
-  width: 100%;
-  height: 60vh;
-  
-  @media(max-height: 850px) {
-    height: 550px;
-  }
-
-  @media(max-width: 900px) {
-    height: 650px;
-  }
-
-  @media(max-width: 675px) {
-    height: 750px;
-  }
-
-  hr.line { 
-    width: 850px;
-    margin: 1.5rem 0;
-  }
-
-  @media (max-width: 900px) {
-    hr.line {
-      width: 650px;
-    }
-  }
-
-  @media (max-width: 675px) {
-    hr.line {
-      width: 435px;
-    }
-  }
-
-  @media (max-width: 500px) {
-    hr.line {
-      width: 365px;
-    }
-  }
-
-  @media (max-width: 498px) {
-    hr.line {
-      width: 315px;
-    }
-  }
-`
-
-export const StackCardContainer = styled.div`
-  display: grid;
-  background: rgba(28,28,28, 0.5);
-  padding: 1rem;
-  border-radius: 15px;
-  grid-template-columns: repeat(4, 1fr);
-  align-self: center;
-  gap: 1rem;
-
-  @media(max-width: 900px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  @media(max-width: 675px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-`
-//----------------------------------------------------
-//PROJECTS STYLES ------------------------------------
-export const Projects = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 50vh;
-
-  hr.line { 
-    width: 850px;
-    margin: 1.5rem 0;
-  }
-
-  @media(max-height: 850px) {
-    height: 450px;
-  }
-
-  @media (max-width: 900px) {
-    hr.line {
-      width: 650px;
-    }
-  }
-
-  @media (max-width: 675px) {
-    hr.line {
-      width: 435px;
-    }
-  }
-
-
-  @media (max-width: 500px) {
-    hr.line {
-      width: 398px;
-    }
-
-    .header p {
-      line-height: 1.3;
-      margin: 15px 50px 0;
-    }
-  }
-
-  @media (max-width: 498px) {
-    hr.line {
-      width: 328px;
-    }
-  }
-`
 //----------------------------------------------------
 //CONTATO STYLES -------------------------------------
 export const Contact = styled.div`
@@ -300,13 +326,13 @@ export const Contact = styled.div`
 `
 export const ContactContainer = styled.div`
   position: relative;
-  padding: 20px;
+  padding: 20px 10px 20px 20px;
   border-radius: 20px;
   background: #aeaeae;
 
   .infos {
-    display: flex;
-
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     input {
       width: 20rem;
       height: 2rem;
@@ -319,15 +345,16 @@ export const ContactContainer = styled.div`
         padding-left: 5px;
       }
     }
-  
-    input + input {
-      margin-left: 15px;
+
+    input:first-child {
+      margin-right: 15px;
     }
   }
 
+
   textarea {
     resize: none;
-    width: 99%;
+    width: 97%;
     height: 8rem;
     border-radius: 10px;
     font-size: 20px;

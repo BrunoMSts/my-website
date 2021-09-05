@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const CardContainer = styled.div`
   display: grid;
   position: relative;
-  padding: 2rem 4.85rem;
+  padding: 1.25rem 2.5rem;
   background-color: #aeaeae;
 
   border-radius: 15px;
@@ -18,7 +18,7 @@ export const CardContainer = styled.div`
     border-radius: 15px;
     color: #FFFFFF;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1rem;
     opacity: 0;
     background: linear-gradient(rgba(42,255,0, 0.7) 0%, rgba(144,144,144, 0.8) 100%);
     text-transform: uppercase;
@@ -29,7 +29,7 @@ export const CardContainer = styled.div`
     opacity: 1;
     cursor: default;
   };
-
+  
   @media(max-width: 498px) {
     padding: 2rem 3rem;
 

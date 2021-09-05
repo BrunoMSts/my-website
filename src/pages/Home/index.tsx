@@ -5,8 +5,6 @@ import {
   Main, 
   Introduction, 
   Profile, 
-  Abilities, 
-  Projects,
   Contact, 
   AboutMe,
   LeftSide,
@@ -46,8 +44,6 @@ export default function Home() {
 
   return (
     <>
-      <h1>NADA AQUI AINDA, CURIOSO</h1>
-      <span style={{color: 'red'}}>AS CORES SERVEM MERAMENTE PARA SABER O FINAL DE CADA DE SECTION, SITE EM DESENVOLVIMENTO</span><br />      <Link to="/canvas">Mentira, tem esse link aq</Link>
       <Navbar isScrolling={isScroll}/>
       <Main>
         <section style={{position: 'relative'}}>
@@ -58,7 +54,6 @@ export default function Home() {
                 position: "absolute",
                 width: "100%",
                 height: "100%",
-                background: "#ff001185",
                 opacity: 0.2,
               }}
             >
@@ -73,12 +68,13 @@ export default function Home() {
         </section>
         <section>
           <Profile id="profile">
-            <Header>
-              <h1>Perfil</h1>
-              <p>Always in constanting learning. 🌱</p>
-              <hr className="line"/>
-            </Header>
-            <AboutMe>
+            <div className="profileContainer">
+              <Header>
+                <h1>Perfil</h1>
+                <p>Always in constanting learning. 🌱</p>
+                <hr className="line"/>
+              </Header>
+              <AboutMe>
               <LeftSide className="left">
                 <h1>About me</h1>
                 <p style={{fontSize: "15px"}}>
@@ -87,7 +83,7 @@ export default function Home() {
                   First of all, my name is Bruno and i am a person that
                   who like to build some web applications, despite my 
                   focus is centered on web, i am a enthusiast when it's 
-                  about Information security🔒.<br/> 
+                  about Cyber Security🔒.<br/> 
                   In my free times, i like to play video games and sometimes 
                   read a book or hangout with my friends.
                   You can chat with me about everything, let's find out the secrets of the universe. 💬
@@ -97,9 +93,9 @@ export default function Home() {
               <RightSide className="right">
                 <div className="details">
                   <h1>Details</h1>
-                  <span className="bold">Nome: </span><p>Bruno</p>
-                  <span className="bold">Idade: </span><p>21</p>
-                  <span className="bold">Localização: </span><p>Em algum lugar no pálido ponto azul</p>
+                  <span className="bold">Name: </span><p>Bruno</p>
+                  <span className="bold">Age: </span><p>21</p>
+                  <span className="bold">Location: </span><p>Somewhere in the pale blue dot..</p>
                 </div>
                 <div className="contacts">
                   <a href="https://www.github.com/BrunoMSts" title="Github"><FaGithubAlt size={30}/></a>
@@ -108,46 +104,59 @@ export default function Home() {
                 </div>
               </RightSide>
             </AboutMe>
+            </div>
+            <div className="carouselContainer">
+              <div className="carouselHeader">
+                <p>Projects that i build on my journey as dev 👨‍💻</p>
+                <hr className="line"/>
+              </div>
+              <span className="projectsText">
+                P<br/>
+                R<br/>
+                O<br/>
+                J<br/>
+                E<br/>
+                C<br/>
+                T<br/>
+                S<br/>
+              </span>
+              <Carousel />
+            </div>
+            <div className="abilitiesContainer">
+              <div className="abilitiesHeader">
+                <p>Techs that i mostly use 🔥</p>
+                <hr className="line"/>
+              </div>
+              <span className="stackText">
+                S<br/>
+                T<br/>
+                A<br/>
+                C<br/>
+                K<br/>
+                S
+              </span>
+              <StackCardContainer>
+                {stacks.map(stack => (
+                  <StackCard key={stack.id} id={stack.id} name={stack.name}/>
+                ))}
+              </StackCardContainer>
+            </div>
           </Profile>
-        </section>
-        <section>
-         <Abilities id="abilities">
-           <Header>
-              <h1>Habilidades</h1>
-              <p>Tecnologias que mais uso atualmente 🔥</p>
-              <hr className="line"/>
-           </Header>
-           <StackCardContainer>
-            {stacks.map(stack => (
-              <StackCard key={stack.id} id={stack.id} name={stack.name}/>
-            ))}
-           </StackCardContainer>
-        </Abilities>
-        </section>
-        <section>
-         <Projects id="projects">
-          <Header className="header">
-              <h1>Projetos</h1>
-              <p>Projetos que desenvolvi ao longo da minha jornada como dev 👨‍💻</p>
-              <hr className="line"/>
-          </Header>
-          <Carousel />
-         </Projects>
         </section>
         <section>
           <Contact id="contact">
             <Header>
-                <h1>Contato</h1>
-                <p>Entre em contato comigo 🤗</p>
+                <h1>Contact me 🤗</h1>
                 <hr className="line"/>
             </Header>
             <ContactContainer>
               <div className="infos">
-                <input type="nome" placeholder="Nome"/>
+                <input type="nome" placeholder="Name"/>
                 <input type="email" placeholder="E-mail"/>
+                <input type="subject" placeholder="Subject" style={{width: "195%"}}/>
               </div>
-              <textarea name="mensagem" id="" placeholder="Escreva sua mensagem"></textarea>
-              <button type="submit">Enviar</button>
+              <textarea name="mensagem" id="" placeholder="Your message here..."></textarea>
+              <button type="submit">Send</button>
             </ContactContainer>
           </Contact>
         </section>

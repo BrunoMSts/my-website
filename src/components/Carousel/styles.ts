@@ -2,23 +2,32 @@ import styled from "styled-components";
 
 export const CarouselContainer = styled.div`
   position: relative;
-  display: flex;
-  height: 140px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
+  margin-right: 5rem;
+
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 9.6rem;
+    width: 11rem;
+
+  }
   
   .imgContainer {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 315px;
-    height: 10rem;
-    margin: 0 15px 20px;
-    padding: 8px;
+    height: 7rem;
+    width: 8.5rem;
+    padding: 10px;
+    background: #FFFFFF;
 
-    border: 1px solid #aeaeae;
+    border: 1px solid #FF0000;
     border-radius: 20px;
     transition: 0.35s;
 
@@ -37,16 +46,23 @@ export const CarouselContainer = styled.div`
 
     &:hover {
       cursor: pointer;
+      height: 8rem;
+      width: 9.5rem;
     }
   }
   
   .active {
-    height: 12rem;
+    height: 8rem;
+    width: 9.5rem;
     a {
       display: inline;
     }
   }
   
+  @media(max-width: 1700px) {
+    margin: 0;
+  }
+
   @media(max-width: 501px) {
     .imgContainer {
       margin: 0;
@@ -58,7 +74,9 @@ export const CarouselContainer = styled.div`
 export const Swiper = styled.div`
   display: flex;
   position: absolute;
-  margin-top: 230px;
+  bottom: -18px;
+  align-self: end;
+  justify-self: center;
 
   span {
     margin-right: 4px;
