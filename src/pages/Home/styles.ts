@@ -31,13 +31,13 @@ export const Profile = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 60vh;
+  margin: 10rem 0;
 
   .profileContainer {
     position: absolute;
     background: #AEAEAE;
     margin: 0 auto;
-    border-radius: 20px;
+    border-radius: 100px;
     padding: 2rem;
     z-index: 1;
   }
@@ -50,28 +50,21 @@ export const Profile = styled.div`
     position: absolute;
     background: #AEAEAA70;
     padding: 10px 10px 20px 30px;
-    border-radius: 20px;
+    border-radius: 100px 20px 20px 100px;
     transform: translateX(-247px);
     
     transition: 0.8s;
 
-    .carouselHeader {
-      margin-right: 5rem;
-      line-height: 0;
-    }
-
-
     span.projectsText {
       position: absolute;
       left: 0;
-      margin-left: 8px;
-
+      margin-left: 5px;
+      font-weight: bold;
       transition: 0.8s;
     }
 
     :hover {
       transform: translateX(-650px);
-
       span.projectsText {
         opacity: 0;
       }
@@ -83,49 +76,46 @@ export const Profile = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 10px 30px 10px 10px;
-    border-radius: 20px;
+    padding: 10px 20px 10px 10px;
+    border-radius: 20px 100px 100px 20px;
     background: #AEAEAA70;
-    transform: translateX(283px);
+    transform: translateX(290px);
 
-    .abilitiesHeader {
-      margin-left: 5rem;
-      line-height: 0;
-    }
+
 
     span.stackText {
       position: absolute;
       right: 0;
-      margin-right: 8px;
-
+      margin-right: 5px;
+      font-weight: bold;
       transition: 0.8s;
     }
 
     transition: 0.8s;
     :hover {
       transform: translateX(600px);
-
       span.stackText {
         opacity: 0;
       }
     }
   }
 
-  @media (max-width: 1700px) {
+  @media (max-width: 1750px) {
     flex-direction: column;
-    margin-bottom: 500px;
+    margin: 18rem 0;
 
     .carouselContainer {
-      padding: 10px 10px 20px;
-      transform: translateY(450px);
-      margin-left: 30rem;
+      padding: 100px 10px 20px;
+      border-radius: 0 0 0 50px;
+      transform: translateY(360px);
+      margin-right: 26rem;
 
       .carouselHeader {
         margin: 0;
       }
 
       :hover {
-        transform: translate(0, 472px);
+        transform: translate(0, 372px);
       }
 
       span.projectsText {
@@ -135,17 +125,17 @@ export const Profile = styled.div`
     
     .abilitiesContainer {
       position: absolute;
-      padding: 10px;
-      transform: translateY(440px);
-      right: 0;
-      margin-right: 28rem;
+      padding: 125px 10px 10px;
+      transform: translateY(334px);
+      border-radius: 0 0 50px 0;
+      margin-left: 22rem;
 
       .abilitiesHeader {
         margin: 0;
       }
 
       :hover {
-        transform: translate(0, 462px);
+        transform: translate(0, 348px);
       }
 
       span.stackText {
@@ -154,42 +144,93 @@ export const Profile = styled.div`
     }
   }
   
-  @media(max-height: 890px) {
-    height: 550px;
-  }
-
   @media(max-width: 900px) {
-    height: 750px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 23rem;
+
+    .profileContainer {
+      padding: 0;
+      height: 43rem;
+      width: 45rem;
+
+      img {
+        transform: translateY(-180px);
+      }
+
+      div.left {
+        transform: translateY(360px);
+      }
+
+      div.right {
+        transform: translateY(-175px);
+      }
+    }
+
+
+    .abilitiesContainer {
+      margin: 0;
+      margin-top: 4.5rem;
+      border-radius: 0 0 50px 50px;
+
+    }
+    
+    .carouselContainer {
+      margin: 0;
+      margin-top: 46.78rem;
+      padding-top: 10px;
+      border-radius: 0 0 50px 50px;
+    }
   }
 
-  @media(max-width: 800px) {
-    height: 1000px;
+  @media(max-width: 700px) {
+    .profileContainer {
+      height: 61rem;
+      width: 38rem;
+      margin-top: 16rem;
+    }
+
+    div.right {
+      margin-right: 3rem;
+      transform: translateY(160px) !important;
+    }
+
+    .abilitiesContainer {
+      margin-top: 38rem;
+    }
+
+    .carouselContainer {
+      margin-top: 80rem;
+    }
   }
 
+  @media(max-width: 500px) {
+    .profileContainer {
+      width: 25rem;
+    }
 
-`
-export const StackCardContainer = styled.div`
-  display: grid;
-  background: rgba(28,28,28, 0.5);
-  padding: 0.75rem;
-  margin-left: 5rem;
-  border-radius: 15px;
-  grid-template-columns: repeat(2, 1fr);
-  align-self: center;
-  gap: 1rem;
+    .abilitiesContainer {
+      margin-top: 57rem;
+    }
 
-  @media(max-width: 1700px) {
-    grid-template-columns: repeat(3, 1fr);
-    margin: 0;
+    .carouselContainer {
+      margin-top: 118rem;
+    }
   }
 
-  @media(max-width: 900px) {
-    grid-template-columns: repeat(3, 1fr);
+  @media(max-width: 360px) {
+    .profileContainer {
+      width: 22rem;
+    }
+
+    .carouselContainer {
+      .content {
+        width: 8.5rem;
+        height: 7rem;
+      }
+    }
   }
 
-  @media(max-width: 675px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
 `
 export const Header = styled.div`
   display: flex;
@@ -200,12 +241,12 @@ export const Header = styled.div`
 
   hr.line { 
     width: 850px;
-    margin: 1.5rem 0;
+    margin: 0.5rem 0;
   }
 
   @media (max-width: 900px) {
     hr.line {
-      width: 710px;
+      width: 600px;
     }
   }
 
@@ -222,33 +263,35 @@ export const AboutMe = styled.main`
   
   @media(max-width: 900px) {
     flex-direction: column;
-    margin: 0 100px;
+    margin: 0 3.5rem;
+    max-height: 35rem;
 
     img {
-      transform: translateY(-300px) ;
+      transform: translateY(-290px) ;
     }
 
     div.left {
-      transform: translateY(230px);
+      transform: translateY(250px);
       align-self: flex-start;
     }
 
     div.right {
-      transform: translateY(-272px);
-      margin-right: 20px;
+      transform: translateY(-90px);
       align-self: flex-end;
     }
+
+
   }
 
-  @media(max-width: 800px) {
-    display: grid;
+  @media(max-width: 700px) {
 
     div.left {
-      align-self: center;
+      align-self: unset;
+      
     }
-
     div.right {
-      margin-top: 330px;
+      align-self: unset;
+      transform: translateY(250px);
     }
   }
 
@@ -292,6 +335,32 @@ export const RightSide = styled.div`
     }
   }
 `
+export const StackCardContainer = styled.div`
+  display: grid;
+  background: rgba(28,28,28, 0.5);
+  padding: 0.75rem 3.1rem 0.75rem 4.5rem;
+  border-radius: 0 100px 100px 0;
+  grid-template-columns: repeat(2, 1fr);
+  align-self: center;
+  gap: 1rem;
+
+  @media(max-width: 1750px) {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 2rem 0.8rem;
+    padding-top: 4rem;
+    margin: 0;
+    border-radius: 0 0 50px 50px;
+  }
+
+  @media(max-width: 900px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media(max-width: 500px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+`
 //----------------------------------------------------
 //----------------------------------------------------
 //CONTATO STYLES -------------------------------------
@@ -299,18 +368,31 @@ export const Contact = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  height: 58vh;
-  
+  margin-bottom: 2rem;
+
   hr.line { 
     width: 700px;
     margin: 1.5rem 0;
   }
 
-  @media (max-width: 730px) {
+  @media (max-width: 1750px) {
+    margin-top: 25rem;
+  }
+
+  @media(max-width: 900px) {
+    margin-top: 48rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 700px) {
+    margin-top: 63rem;
     hr.line {
       width: 365px;
     }
+  }
+
+  @media(max-width: 500px) {
+    margin-top: 83rem;
   }
 
   @media (max-width: 360px) {
@@ -318,10 +400,7 @@ export const Contact = styled.div`
       width: 325px;
     }
   }
-  
-  @media(max-height: 850px) {
-    height: 550px;
-  }
+
 
 `
 export const ContactContainer = styled.div`
@@ -381,17 +460,23 @@ export const ContactContainer = styled.div`
   }
 
   @media(max-width: 730px) {
-    display: flex;
-    flex-direction: column;
+    width: 50%;
+    padding: 20px;
 
     .infos {
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      input + input {
-        margin-left: 0;
+      display: flex;
+      flex-wrap: wrap;
+
+      input {
+        width: 100%;
       }
+
+      input:first-child {
+        margin-right: 0;
+      }
+
     }
+
 
     button {
       width: 100%;

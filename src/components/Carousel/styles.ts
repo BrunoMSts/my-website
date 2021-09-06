@@ -6,7 +6,7 @@ export const CarouselContainer = styled.div`
   grid-template-columns: repeat(2, 1fr);
   justify-content: center;
   align-items: center;
-  margin-right: 5rem;
+  margin: 0 3rem 0 1.2rem;
 
   .content {
     display: flex;
@@ -59,13 +59,25 @@ export const CarouselContainer = styled.div`
     }
   }
   
-  @media(max-width: 1700px) {
+  @media(max-width: 1750px) {
     margin: 0;
   }
 
   @media(max-width: 501px) {
     .imgContainer {
       margin: 0;
+    }
+  }
+
+  @media(max-width: 360px) {
+    .imgContainer {
+      height: 5rem;
+      width: 6rem;
+
+      :hover {
+        height: 5.5rem;
+        width: 6.5rem;
+      }
     }
   }
 `

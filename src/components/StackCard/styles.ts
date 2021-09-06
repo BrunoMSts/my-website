@@ -3,10 +3,10 @@ import styled from "styled-components";
 export const CardContainer = styled.div`
   display: grid;
   position: relative;
-  padding: 1.25rem 2.5rem;
+  padding: 1rem 2rem;
   background-color: #aeaeae;
 
-  border-radius: 15px;
+  border-radius: 20px;
 
   span {
     position: absolute;
@@ -15,7 +15,7 @@ export const CardContainer = styled.div`
     justify-content: center;
     width: 100%;
     height: 100%;
-    border-radius: 15px;
+    border-radius: 20px;
     color: #FFFFFF;
     font-weight: bold;
     font-size: 1rem;
@@ -30,8 +30,11 @@ export const CardContainer = styled.div`
     cursor: default;
   };
   
-  @media(max-width: 498px) {
-    padding: 2rem 3rem;
+  @media(max-width: 500px) {
+    padding: 2rem 4rem;
+  }
 
+  @media(max-width: 360px) {
+    padding: 1.75rem 2rem;
   }
 `

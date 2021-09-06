@@ -105,28 +105,7 @@ export default function Home() {
               </RightSide>
             </AboutMe>
             </div>
-            <div className="carouselContainer">
-              <div className="carouselHeader">
-                <p>Projects that i build on my journey as dev 👨‍💻</p>
-                <hr className="line"/>
-              </div>
-              <span className="projectsText">
-                P<br/>
-                R<br/>
-                O<br/>
-                J<br/>
-                E<br/>
-                C<br/>
-                T<br/>
-                S<br/>
-              </span>
-              <Carousel />
-            </div>
             <div className="abilitiesContainer">
-              <div className="abilitiesHeader">
-                <p>Techs that i mostly use 🔥</p>
-                <hr className="line"/>
-              </div>
               <span className="stackText">
                 S<br/>
                 T<br/>
@@ -141,6 +120,20 @@ export default function Home() {
                 ))}
               </StackCardContainer>
             </div>
+            <div className="carouselContainer">
+              <span className="projectsText">
+                P<br/>
+                R<br/>
+                O<br/>
+                J<br/>
+                E<br/>
+                C<br/>
+                T<br/>
+                S<br/>
+              </span>
+              <Carousel />
+            </div>
+            
           </Profile>
         </section>
         <section>
