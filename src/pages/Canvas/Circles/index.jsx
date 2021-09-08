@@ -10,7 +10,7 @@ export default function Draw() {
   const canvasRef = useRef(null);
   const requestIdRef = useRef(null);
 
-  const [qtdBalls, setQtdBalls] = useState(30)
+  const qtdBalls = 30
 
   let width = window.innerWidth - 20;
   let height = window.innerHeight
@@ -27,7 +27,7 @@ export default function Draw() {
       let ball = new Ball(x, y, radius)
       balls.push(ball)
     }
-  }, [qtdBalls])
+  }, [])
   
   const renderFrame = () => {
     let width = window.innerWidth

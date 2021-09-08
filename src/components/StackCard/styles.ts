@@ -20,7 +20,7 @@ export const CardContainer = styled.div`
     font-weight: bold;
     font-size: 1rem;
     opacity: 0;
-    background: linear-gradient(rgba(42,255,0, 0.7) 0%, rgba(144,144,144, 0.8) 100%);
+    background: linear-gradient(rgba(255, 102, 117, 0.7) 0%, rgba(144,144,144, 0.8) 100%);
     text-transform: uppercase;
     transition: opacity 0.4s ease-in;
   }

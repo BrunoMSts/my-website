@@ -329,7 +329,7 @@ export const RightSide = styled.div`
 
       transition: 0.3s ease-in;
       &:hover {
-        color: #FA005B;
+        color: #F43e50;
         cursor: pointer;
       }
     }

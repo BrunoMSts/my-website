@@ -1,6 +1,5 @@
-import React from 'react';
+import { FormEvent } from 'react';
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { 
   Main, 
   Introduction, 
@@ -14,6 +13,7 @@ import {
   StackCardContainer,
   ContactContainer
 } from "./styles";
+import emailjs from 'emailjs-com';
 
 import { stacks } from '../../utils/stacks';
 
@@ -42,10 +42,21 @@ export default function Home() {
     }, 2000)
   }, [])
 
+  function handleSendEmail(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    emailjs.sendForm('service_qyypiem', 'template_iqbfqem', e.currentTarget, 'user_jznd66ZwddNOwO0qDxDHq')
+      .then(() => {
+        alert("Email enviado!")
+      }, () => {
+        alert("Ocorreu um erro, tente novamente!")
+      });
+    e.currentTarget.reset();
+  }
+
   return (
     <>
       <Navbar isScrolling={isScroll}/>
-      <Main>
+      <Main> 
         <section style={{position: 'relative'}}>
           <Circles />
           <Introduction id="introduction">
@@ -143,13 +154,15 @@ export default function Home() {
                 <hr className="line"/>
             </Header>
             <ContactContainer>
-              <div className="infos">
-                <input type="nome" placeholder="Name"/>
-                <input type="email" placeholder="E-mail"/>
-                <input type="subject" placeholder="Subject" style={{width: "195%"}}/>
-              </div>
-              <textarea name="mensagem" id="" placeholder="Your message here..."></textarea>
-              <button type="submit">Send</button>
+              <form onSubmit={handleSendEmail}>
+                <div className="infos">
+                  <input name="name" type="text" placeholder="Name" />
+                  <input name="email" type="email" placeholder="E-mail"/>
+                  <input name="subject" type="text" placeholder="Subject" style={{width: "195%"}}/>
+                </div>
+                <textarea name="mensagem" id="" placeholder="Your message here..." ></textarea>
+                <button type="submit">Send</button>
+              </form>
             </ContactContainer>
           </Contact>
         </section>

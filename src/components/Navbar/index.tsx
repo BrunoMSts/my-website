@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { links } from '../../data';
 import { A, Links, Nav, NavCenter } from './styles';
+import { FiAperture } from 'react-icons/fi'
+import { RiProfileLine, RiMailSendLine } from 'react-icons/ri'
 
 type NavbarProps = {
   isScrolling: boolean;
@@ -28,9 +29,9 @@ export default function Navbar({isScrolling}: NavbarProps) {
     >
       <NavCenter>
         <Links>
-          {links.map(link => {
-            return (<A href={link.url} key={link.id}>{link.text} </A>)
-          })}
+          <A href="#introduction" ><FiAperture size={24} />Introduction</A>
+          <A href="#profile" ><RiProfileLine size={24} />Profile</A>
+          <A href="#contact" ><RiMailSendLine size={24} />Contact</A>
         </Links>
       </NavCenter>
     </Nav>
