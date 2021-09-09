@@ -46,12 +46,6 @@ export default function Carousel() {
     setActiveIndex(event.currentTarget.id)
   }
 
-  // useEffect(() => {
-  //   if(!isClicked) {
-  //     setTimeout(() => setActiveIndex((prevIndex) => prevIndex === datas.length ? 0 : prevIndex + 1), 2000)
-  //   }
-  // }, [activeIndex])
-
   return (
     <CarouselContainer >
       {datas.map(data => (
