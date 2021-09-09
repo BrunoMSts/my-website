@@ -25,7 +25,7 @@ import Navbar from "../../components/Navbar";
 import StackCard from "../../components/StackCard";
 import Carousel from "../../components/Carousel";
 
-import Rengoku from '../../assets/rengoku.png'
+import Rengoku from '../../assets/rengoku.jpg'
 import Circles from "../Canvas/Circles";
 
 export default function Home() {
