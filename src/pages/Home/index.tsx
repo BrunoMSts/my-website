@@ -110,7 +110,7 @@ export default function Home() {
                 </div>
                 <div className="contacts">
                   <a href="https://www.github.com/BrunoMSts" title="Github"><FaGithubAlt size={30}/></a>
-                  <a href="https://www.google.com" title="Linkedin"><AiOutlineLinkedin size={30}/></a>
+                  <a href="https://www.linkedin.com/in/bruno-martins-4aa1331a5/" title="Linkedin"><AiOutlineLinkedin size={30}/></a>
                   <a href="https://www.google.com"><SiGmail size={30} title="Gmail"/></a>
                 </div>
               </RightSide>

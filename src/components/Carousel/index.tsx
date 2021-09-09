@@ -34,7 +34,7 @@ export default function Carousel() {
       id: 4,
       title: 'myownwebsite',
       img: Mows,
-      url: 'http://localhost:3000/'
+      url: 'https://brunomows.netlify.app'
     },
   ]
 
