@@ -72,7 +72,7 @@ export default function Home() {
                 background: `url(${Rengoku}) center center / cover no-repeat`
               }} />
             </div>
-            <h1>Made with <FaHeart color="red"/> by Bruno</h1>
+            <h1 style={{fontSize: '35px'}}>Made with <FaHeart color="red"/> by Bruno</h1>
             <h2>Fullstack Developer</h2>
             <span>WORKING HARD TO MAKE THE INTERNET AWESOME</span>
           </Introduction>

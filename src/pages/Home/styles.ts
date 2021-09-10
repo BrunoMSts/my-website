@@ -20,6 +20,12 @@ export const Introduction = styled.div`
 
     opacity: 0.2;
   }
+
+  @media(max-width: 400px) {
+    h1 {
+      font-size: 30px !important;
+    }
+  }
 `
 
 //----------------------------------------------------

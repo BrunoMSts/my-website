@@ -67,7 +67,7 @@ export default function Carousel() {
             id={data.id.toString()}
             onClick={event => handleChange(event)}
           >
-            <GoPrimitiveDot color={Number(activeIndex) === data.id ? "#daff" : ""}/>
+            <GoPrimitiveDot color={Number(activeIndex) === data.id ? "#F43e50" : ""}/>
           </span>  
         ))}
       </Swiper>
